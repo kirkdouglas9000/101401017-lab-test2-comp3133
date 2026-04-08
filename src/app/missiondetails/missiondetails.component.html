@@ -1,0 +1,20 @@
+<div *ngIf="mission" style="border:2px solid #444; padding:15px; margin-top:20px;">
+  
+  <h2>{{ mission.mission_name }}</h2>
+
+  <img [src]="mission.links.mission_patch_small" width="150">
+
+  <p><strong>Flight Number:</strong> {{ mission.flight_number }}</p>
+  <p><strong>Launch Year:</strong> {{ mission.launch_year }}</p>
+
+  <p><strong>Rocket:</strong> {{ mission.rocket.rocket_name }}</p>
+  <p><strong>Type:</strong> {{ mission.rocket.rocket_type }}</p>
+
+  <p>{{ mission.details }}</p>
+
+  <a [href]="mission.links.wikipedia" target="_blank">Wikipedia</a>
+  <br>
+  <a [href]="mission.links.article_link" target="_blank">Article</a>
+  <br>
+  <a [href]="mission.links.video_link" target="_blank">Video</a>
+</div>

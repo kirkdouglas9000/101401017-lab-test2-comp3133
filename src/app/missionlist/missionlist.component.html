@@ -1,0 +1,25 @@
+<h2>SpaceX Mission Launch List</h2>
+
+<app-missionfilter (yearSelected)="filterByYear($event)"></app-missionfilter>
+
+<div 
+  *ngFor="let mission of missions"
+  (click)="selectMission(mission)"
+  style="border:1px solid #ccc; padding:10px; margin:10px; cursor:pointer;">
+
+  <img [src]="mission.links.mission_patch_small" width="100">
+
+  <h3>{{ mission.mission_name }} ({{ mission.launch_year }})</h3>
+
+  <p>{{ mission.details }}</p>
+
+  <p>
+    <strong>Rocket:</strong>
+    {{ mission.rocket.rocket_name }} - {{ mission.rocket.rocket_type }}
+  </p>
+
+  <a [href]="mission.links.wikipedia" target="_blank">Wikipedia</a>
+</div>
+
+<!-- ✅ THIS IS THE IMPORTANT PART YOU WERE ASKING ABOUT -->
+<app-missiondetails [mission]="selectedMission"></app-missiondetails>
